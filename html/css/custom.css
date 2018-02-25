@@ -11,7 +11,7 @@ Add your custom styles below
 	line-height:50px;
 	/*margin-top:25px;*/
 	padding: 0;
-
+	width:100%;
 }
 .nav-bar .navbar-brand {
 	background-color: white;
@@ -20,7 +20,7 @@ Add your custom styles below
 		linear-gradient(225deg, transparent 30px, #fff 0) top right,*/
 		linear-gradient(315deg, transparent 30px, #fff 0) bottom right,
 		linear-gradient(45deg,  transparent 30px, #fff 0) bottom left;
-	background-size: 50% 50%;
+	background-size: 60% 50%;
 	background-repeat: no-repeat;
 	
     position: relative;
@@ -32,6 +32,7 @@ Add your custom styles below
     margin-right: auto;
     /*margin-top:-25px;*/
     z-index:1;
+    width:100%;
 
 }
 
