@@ -1560,6 +1560,7 @@ $(function() {
           cache[url] = $('<div class="item">').appendTo("#content-container").load(url, function() {
           $("#content-container").ready(function() {
             onLoadContainer();
+            $("#home-carousel").carousel();
           });
 
         });
@@ -1577,3 +1578,5 @@ function bindOnce(button, callback) {
     button.click(callback);
   }
 }
+
+
