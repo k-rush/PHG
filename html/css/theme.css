@@ -8143,3 +8143,15 @@ section[class*='elements-'] hr + .row {
     margin-bottom: 0.8125em;
   }
 }
+
+
+/* CUSTOM */
+.navbar-brand {
+    position: absolute;
+    width: 200px;
+    max-width:90%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+}
