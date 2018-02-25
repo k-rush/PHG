@@ -1560,7 +1560,13 @@ $(function() {
           cache[url] = $('<div class="item">').appendTo("#content-container").load(url, function() {
           $("#content-container").ready(function() {
             onLoadContainer();
-            $("#home-carousel").carousel();
+            //var homeCarousel = $("#home-carousel").carousel();
+            $('.carousel').carousel();
+            $('.carousel-control').click(function(e){
+              e.preventDefault();
+            });
+            bindOnce($('.carousel-control-prev'), function() { $('#home-carousel').carousel('prev'); });
+            bindOnce($('.carousel-control-next'), function() { $('#home-carousel').carousel('next'); });
           });
 
         });

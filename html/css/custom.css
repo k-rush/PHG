@@ -50,3 +50,11 @@ Add your custom styles below
 	/*margin-top:-75px;*/
 }
 
+.h1 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight:normal;
+}
+
+.bg--primary {
+	background-color:black;
+}
