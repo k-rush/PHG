@@ -1495,7 +1495,8 @@ nav {
   user-select: none;
   -webkit-user-select: none;
 }
-@media all and (max-width: 990px) {
+/****** CHANGING THIS TO 767 FROM 990px! */
+@media all and (max-width: 767px) {
   .nav-bar {
     height: auto;
     overflow: hidden;
@@ -1519,6 +1520,7 @@ nav {
     float: none;
     width: 100%;
   }
+  
   .menu > li > a {
     padding: 0;
   }

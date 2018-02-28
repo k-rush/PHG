@@ -13,6 +13,8 @@ Add your custom styles below
 	padding: 0;
 	width:100%;
 }
+
+/** Adding the beveled bg to brand */
 .nav-bar .navbar-brand {
 	background-color: white;
 	background:
@@ -58,4 +60,16 @@ Add your custom styles below
 
 .bg--primary {
 	background-color:black;
+}
+.imagebg {
+	padding-top:4em;
+}
+
+
+/** Fix for sm nav */
+@media (max-width: 990px)
+theme.css:1518
+.menu li {
+    float: none;
+    width: 100%;
 }
