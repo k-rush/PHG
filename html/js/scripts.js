@@ -1530,6 +1530,7 @@ mr = (function (mr, $, window, document){
 
 function onLoadContainer() {
   mr.documentReady();
+  mr.windowLoad();
 
  
 
