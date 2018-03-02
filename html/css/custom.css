@@ -91,3 +91,15 @@ Add your custom styles below
   display: -ms-flexbox;
   display:         flex;
 }
+
+.no-margin {
+	margin:0;
+}
+
+.no-padding {
+	padding:0;
+}
+
+.project__card {
+	margin-bottom:1em;
+}
