@@ -48,6 +48,10 @@ Add your custom styles below
 	font-size: .8em;
 }
 
+.nav-menu {
+	padding-left: 3em;
+}
+
 .imagebg {
 	/*margin-top:-75px;*/
 }
@@ -67,9 +71,16 @@ Add your custom styles below
 
 
 /** Fix for sm nav */
-@media (max-width: 990px)
-theme.css:1518
-.menu li {
-    float: none;
-    width: 100%;
+@media (max-width: 767px) {
+	.menu li {
+	    float: none;
+	    width: 100%;
+	}
+}
+
+@media (min-width: 768px and max-width: 991px) {
+	.menu li {
+	    float: inherit;
+	    width: auto;
+	}
 }
