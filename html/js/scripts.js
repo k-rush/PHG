@@ -809,16 +809,17 @@ mr = (function (mr, $, window, document){
             masonry.on('layoutComplete',function(){
                 masonry.addClass('masonry--active');
             });
-
+        /**** Commenting out unnecessary isotope js **/
+            /*
             masonry.isotope({
               itemSelector: '.masonry__item',
               masonry: {
                 columnWidth: '.masonry__item',
                 horizontalOrder:false
               }
-            });
+            });*/
         });
-
+        /*
         $('.masonry__filters li').on('click', function(){
             var masonryFilter = $(this);
             var masonryContainer = masonryFilter.closest('.masonry').find('.masonry__container');
@@ -830,7 +831,7 @@ mr = (function (mr, $, window, document){
             masonryFilter.addClass('active');
             masonryContainer.removeClass('masonry--animate');
             masonryContainer.isotope({ filter: filterValue });
-        });
+        });*/
     };
 
     mr.masonry = {
