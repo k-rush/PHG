@@ -1532,7 +1532,9 @@ mr = (function (mr, $, window, document){
 function onLoadContainer() {
   mr.documentReady();
   mr.windowLoad();
-
+  $(window).scroll(function () {
+    $(".parallax-repeat").css("background-position","50% " + ($(this).scrollTop() / 2) + "px");
+  });
  
 
 

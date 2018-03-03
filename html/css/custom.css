@@ -103,3 +103,11 @@ Add your custom styles below
 .project__card {
 	margin-bottom:1em;
 }
+
+.parallax-repeat {
+    background-image: url('../images/footer_lodyas.png');
+    background-repeat: repeat;
+    background-position: 50% 0;    
+    transition: 0s linear;
+    transition-property: background-position;
+}
