@@ -133,3 +133,10 @@ Add your custom styles below
 	margin-left:auto;
 	margin-right:auto;
 }
+.menu > li ul li a {
+  color: #232323;
+}
+
+.menu > li ul {
+	background-color:#fff;
+}
