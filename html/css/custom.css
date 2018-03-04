@@ -140,3 +140,11 @@ Add your custom styles below
 .menu > li ul {
 	background-color:#fff;
 }
+
+.nav-stack {
+	width:100%;
+}
+
+.logo {
+	max-width:120px;
+}
