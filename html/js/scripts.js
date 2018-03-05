@@ -1066,16 +1066,17 @@ mr = (function (mr, $, window, document){
             //    $('nav').toggleClass('nav-open');
             //});
             
-            $('.menu li').on('click', function(ev){
-                var navItem = $(this),
-                    e       = ev || window.event;
-                
-                e.stopPropagation();
-                if (navItem.find('ul').length) {
-                    navItem.toggleClass('active');
-                } else {
-                    navItem.parents('.active').removeClass('active');
-                }
+            $('.menu li').each(function() { bindOnce($(this), function(ev){
+                    var navItem = $(this),
+                        e       = ev || window.event;
+                    
+                    e.stopPropagation();
+                    if (navItem.find('ul').length) {
+                        navItem.toggleClass('active');
+                    } else {
+                        navItem.parents('.active').removeClass('active');
+                    }
+                }, 'mouseenter'); 
             });
             
             //////////////// Mobile Menu Applets
@@ -1582,10 +1583,11 @@ $(function() {
 
 });
 
-function bindOnce(button, callback) {
-  if(!button.hasClass("click-bound")) {
-    button.addClass("click-bound");
-    button.click(callback);
+function bindOnce(button, callback, ev="click") {
+    var boundString = ev + "-bound";
+  if(!button.hasClass(boundString)) {
+    button.addClass(boundString);
+    button.on(ev, callback);
   }
 }
 
