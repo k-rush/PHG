@@ -1570,8 +1570,8 @@ $(function() {
             $('.carousel-control').click(function(e){
               e.preventDefault();
             });
-            bindOnce($('.carousel-control-prev'), function() { $('#home-carousel').carousel('prev'); });
-            bindOnce($('.carousel-control-next'), function() { $('#home-carousel').carousel('next'); });
+            bindOnce($('.carousel-control-prev'), function() { $('.carousel').carousel('prev'); });
+            bindOnce($('.carousel-control-next'), function() { $('.carousel').carousel('next'); });
           });
 
         });

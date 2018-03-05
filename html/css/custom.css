@@ -57,11 +57,17 @@ Add your custom styles below
 }
 
 .h1, h1{
-	font-family: Cinzel, Times New Roman, Serif;
+	font-family: 'Cinzel', 'Times New Roman', Serif;
 	font-weight:normal;
 	font-size: 3em;
 	margin-bottom: 0px;
 	margin-top: .2em;
+}
+
+h4 {
+	font-family: 'Slabo';
+    font-size: 2.3em;
+    font-weight: normal;
 }
 
 .bg--primary {
