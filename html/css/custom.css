@@ -57,9 +57,11 @@ Add your custom styles below
 }
 
 .h1, h1{
-	font-family: 'Open Sans', sans-serif;
+	font-family: Cinzel, Times New Roman, Serif;
 	font-weight:normal;
 	font-size: 3em;
+	margin-bottom: 0px;
+	margin-top: .2em;
 }
 
 .bg--primary {
@@ -146,5 +148,6 @@ Add your custom styles below
 }
 
 .logo {
-	max-width:120px;
+	max-height:120px;
+	margin-top: .5em;
 }
