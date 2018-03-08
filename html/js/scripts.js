@@ -1112,16 +1112,7 @@ mr = (function (mr, $, window, document){
             });
 
 
-            $(".nav-scroll").each(function() { 
-                bindOnce($(this), function(ev) {
-                    var e = ev || window.event;
-                    e.preventDefault();
-                    var section = $(this).attr("data-section");
-                    $("html, body").animate({
-                        scrollTop: ($(section).offset().top - 50)
-                    });
-                }, 'click');
-            });
+            
         }
     };
 
@@ -1543,11 +1534,17 @@ mr = (function (mr, $, window, document){
 
 
 function onLoadContainer() {
-  mr.documentReady();
-  mr.windowLoad();
-  $(window).scroll(function () {
-    $(".parallax-repeat").css("background-position","50% " + ($(this).scrollTop() / 2) + "px");
-  });
+    mr.documentReady();
+    mr.windowLoad();
+    $(window).scroll(function () {
+        $(".parallax-repeat").css("background-position","50% " + ($(this).scrollTop() / 2) + "px");
+    });
+    $('.carousel').carousel();
+    $('.carousel-control').click(function(e){
+      e.preventDefault();
+    });
+    bindOnce($('.carousel-control-prev'), function() { $('.carousel').carousel('prev'); });
+    bindOnce($('.carousel-control-next'), function() { $('.carousel').carousel('next'); });
  
 
 
@@ -1559,36 +1556,72 @@ var cache = new Object();
 $(function() {
     //debugger;
     //cache[''] = $('<div class="item">').appendTo("#content-container").load('home.html');
+
+
+    //This seems like the wrong place to put this...
+    /*$(".nav-scroll").each(function() { 
+        bindOnce($(this), function(ev) {
+
+            var e = ev || window.event;
+            e.preventDefault();
+            var section = $(this).attr("data-section");
+            $("html, body").animate({
+                scrollTop: ($(section).offset().top - 50)
+            });
+        }, 'click');
+    });*/
+
     $(window).hashchange(function() {
 
-      //alert("hashchange");
+        //alert("hashchange");
 
-      var url = window.location.hash.replace('#', '');
-      if(url == "") {
-        url = "home.html";
-      }
+        var hashSplit = window.location.hash.split('#');
+        var url = hashSplit[1];
+        var location = hashSplit[2];
+
+        if(url == "" || url === null || url === undefined) {
+            url = "home.html";
+        }
       
-      $("#content-container").children(":visible").hide();
+        $("#content-container").children(":visible").hide();
       
-      if ( cache[url] ) {  
-        //debugger;
-        cache[url].show();
-      } else {
-          cache[url] = $('<div class="item">').appendTo("#content-container").load(url, function() {
-          $("#content-container").ready(function() {
-            onLoadContainer();
-            //var homeCarousel = $("#home-carousel").carousel();
-            $('.carousel').carousel();
-            $('.carousel-control').click(function(e){
-              e.preventDefault();
+        if ( cache[url] ) {  
+            //debugger;
+            cache[url].show();
+
+            //If there's a scroll location (second hash), scroll to it, otherwise scroll to top.
+            if(location) {
+                $("html, body").animate({
+                    scrollTop: ($("#" + location).offset().top - 50)
+                });
+            }
+            else {
+                $("html, body").animate({
+                    scrollTop: 0
+                });
+            }
+        } else {
+            cache[url] = $('<div class="item">').appendTo("#content-container").load(url, function() {
+            $("#content-container").ready(function() {
+                onLoadContainer();
+            
+                if(location) {
+                    $("html, body").animate({
+                        scrollTop: ($("#" + location).offset().top - 50)
+                    });
+                }
+                else {
+                    $("html, body").animate({
+                        scrollTop: 0
+                    });
+                }
+
+            
             });
-            bindOnce($('.carousel-control-prev'), function() { $('.carousel').carousel('prev'); });
-            bindOnce($('.carousel-control-next'), function() { $('.carousel').carousel('next'); });
-          });
 
-        });
+            });
 
-      }
+        }
     });
 
     $(window).hashchange();

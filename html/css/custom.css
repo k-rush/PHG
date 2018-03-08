@@ -151,6 +151,7 @@ h4 {
 
 .menu > li ul {
 	background-color:#fff;
+	margin-top:-10px;
 }
 
 .nav-stack {
@@ -189,6 +190,14 @@ hr.style-one {
 
 .project__heading {
 	text-align: center;
-	font-family: "Karma", "Times New Roman", Serif;
+	font-family: "Lora", "Times New Roman", Serif;
 	font-style: italic;
+	font-weight: normal;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.project__card {
+	max-height:500px;
+	overflow:hidden;
 }
