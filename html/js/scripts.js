@@ -1110,6 +1110,15 @@ mr = (function (mr, $, window, document){
                     dropDown.css('margin-left', -(difference));
                 }
             });
+
+
+            $(".nav-scroll").each(bindOnce($(this), function() {
+                e.preventDefault();
+                var section = $(this).attr("data-section");
+                $("html, body").animate({
+                    scrollTop: $(section).offset().top
+                });
+            }), "click");
         }
     };
 

@@ -186,3 +186,9 @@ hr.style-one {
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
+
+.project__heading {
+	text-align: center;
+	font-family: "Karma", "Times New Roman", Serif;
+	font-style: italic;
+}
