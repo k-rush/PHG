@@ -1545,49 +1545,42 @@ function onLoadContainer() {
     });
     bindOnce($('.carousel-control-prev'), function() { $('.carousel').carousel('prev'); });
     bindOnce($('.carousel-control-next'), function() { $('.carousel').carousel('next'); });
+
+    $(".top-scroll").each(function() { 
+        bindOnce($(this), function() { 
+            $("html, body").scrollTop(0); 
+        }); 
+    });
+    $(".nav-scroll").each(function() { 
+        bindOnce($(this), function() {
+            $(window).hashchange();
+        });
+    });
  
 
 
 };
 var cache = new Object();
-//{'':$('<div class="item">').appendTo("#content-container").load('home.html')};
 
-/** Hash-change, simple cache function */
 $(function() {
-    //debugger;
-    //cache[''] = $('<div class="item">').appendTo("#content-container").load('home.html');
-
-
-    //This seems like the wrong place to put this...
-    /*$(".nav-scroll").each(function() { 
-        bindOnce($(this), function(ev) {
-
-            var e = ev || window.event;
-            e.preventDefault();
-            var section = $(this).attr("data-section");
-            $("html, body").animate({
-                scrollTop: ($(section).offset().top - 50)
-            });
-        }, 'click');
-    });*/
-
     $(window).hashchange(function() {
-
-        //alert("hashchange");
-
         var hashSplit = window.location.hash.split('#');
-        var url = hashSplit[1];
+
+        // href elements are formatted such as "#page.html#location"
+        // the string following the first '#' is the url, 
+        // the string following the second is the element id to scroll to.
+        var url = hashSplit[1]; //hashSplit[0] should always be '', if the first char is '#'
         var location = hashSplit[2];
 
+        // If the hash is nonexistent, default to home
         if(url == "" || url === null || url === undefined) {
             url = "home.html";
         }
-      
-        $("#content-container").children(":visible").hide();
+        
+        $("#content-container").children(":visible").hide(); //Hides all the page conatiners
       
         if ( cache[url] ) {  
-            //debugger;
-            cache[url].show();
+            cache[url].show(); //If we've cached the page, show it.
 
             //If there's a scroll location (second hash), scroll to it, otherwise scroll to top.
             if(location) {
@@ -1596,36 +1589,26 @@ $(function() {
                 });
             }
             else {
-                $("html, body").animate({
-                    scrollTop: 0
-                });
+                $("html, body").scrollTop(0);
             }
-        } else {
+        } else {  //If there's no page cached, load it.
             cache[url] = $('<div class="item">').appendTo("#content-container").load(url, function() {
-            $("#content-container").ready(function() {
-                onLoadContainer();
-            
-                if(location) {
-                    $("html, body").animate({
-                        scrollTop: ($("#" + location).offset().top - 50)
-                    });
-                }
-                else {
-                    $("html, body").animate({
-                        scrollTop: 0
-                    });
-                }
-
-            
+                $("#content-container").ready(function() {
+                    onLoadContainer();
+                    //If there's a scroll location (second hash), scroll to it, otherwise scroll to top.
+                    if(location) {
+                        $("html, body").animate({
+                            scrollTop: ($("#" + location).offset().top - 50)
+                        });
+                    }
+                    else {
+                        $("html, body").scrollTop(0);
+                    }
+                });
             });
-
-            });
-
         }
     });
-
     $(window).hashchange();
-
 });
 
 function bindOnce(button, callback, ev="click") {

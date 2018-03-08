@@ -193,11 +193,19 @@ hr.style-one {
 	font-family: "Lora", "Times New Roman", Serif;
 	font-style: italic;
 	font-weight: normal;
-	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.h3 {
+	text-align: center;
+	font-family: "Lora", "Times New Roman", Serif;
+	font-style: italic;
+	font-weight: normal;
 	margin-bottom: 1em;
 }
 
 .project__card {
-	max-height:500px;
+	max-height:700px;
 	overflow:hidden;
+	margin-bottom: 1em;
 }
