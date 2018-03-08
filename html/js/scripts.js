@@ -1112,13 +1112,16 @@ mr = (function (mr, $, window, document){
             });
 
 
-            $(".nav-scroll").each(bindOnce($(this), function() {
-                e.preventDefault();
-                var section = $(this).attr("data-section");
-                $("html, body").animate({
-                    scrollTop: $(section).offset().top
-                });
-            }), "click");
+            $(".nav-scroll").each(function() { 
+                bindOnce($(this), function(ev) {
+                    var e = ev || window.event;
+                    e.preventDefault();
+                    var section = $(this).attr("data-section");
+                    $("html, body").animate({
+                        scrollTop: ($(section).offset().top - 50)
+                    });
+                }, 'click');
+            });
         }
     };
 
