@@ -1119,6 +1119,15 @@ mr = (function (mr, $, window, document){
                 }
             });
 
+            var $root = $('html, body');
+
+            $('a[href^="#"]').click(function () {
+                $root.animate({
+                    scrollTop: $( $.attr(this, 'href') ).offset().top - 60
+                }, 500);
+
+                return false;
+            });
 
             
         }
@@ -1559,6 +1568,9 @@ function onLoadContainer() {
             $("html, body").scrollTop(0); 
         }); 
     });
+    $('a').click(function(event){
+        event.preventDefault();
+    });
     $(".nav-scroll").each(function() { 
         bindOnce($(this), function(ev) {
             // The following is a fix for the double-triggered hashchange for hrefs matching the hash
@@ -1567,8 +1579,20 @@ function onLoadContainer() {
 
             // If the hashes match, just retrigger hashchange event to re-scroll to location
             // Else change the hash
-            if($(this).attr('href') === window.location.hash) $(window).hashchange();
-            else window.location.hash = $(this).attr('href');
+            //if($(this).attr('href') === window.location.hash) $(window).hashchange();
+            //else window.location.hash = $(this).attr('href');
+
+            var hashSplit = $(this).attr('href').split('#');
+            var location = hashSplit[1];
+
+                if(location != "home") {
+                        $("html, body").animate({
+                           scrollTop: ($("#" + location).offset().top - 50)
+                        }, 500);
+                    }
+                else {
+                    $("html, body").scrollTop(0);
+                }
         });
     });
  
@@ -1576,7 +1600,7 @@ function onLoadContainer() {
 
 };
 var cache = new Object();
-
+/*
 $(function() {
     $(window).hashchange(function() {
         var hashSplit = window.location.hash.split('#');
@@ -1584,9 +1608,19 @@ $(function() {
         // href elements are formatted such as "#page.html#location"
         // the string following the first '#' is the url, 
         // the string following the second is the element id to scroll to.
-        var url = hashSplit[1]; //hashSplit[0] should always be '', if the first char is '#'
-        var location = hashSplit[2];
+        //var url = hashSplit[1]; //hashSplit[0] should always be '', if the first char is '#'
+        //var location = hashSplit[1];
 
+        if(location != "home") {
+                //$("html, body").animate({
+                //    scrollTop: ($("#" + location).offset().top - 50)
+                //}, 500);
+            }
+        else {
+            $("html, body").scrollTop(0);
+        }
+
+        
         // If the hash is nonexistent, default to home
         if(url === "" || url === null || url === undefined) {
             url = "home.html";
@@ -1628,7 +1662,7 @@ $(function() {
         }
     });
     $(window).hashchange();
-});
+});*/
 
 function bindOnce(button, callback, ev="click") {
     var boundString = ev + "-bound";
