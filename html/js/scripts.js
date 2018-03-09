@@ -1589,6 +1589,7 @@ $(function() {
         if ( cache[url] ) {  
             cache[url].show(); //If we've cached the page, show it.
 
+
             //If there's a scroll location (second hash), scroll to it, otherwise scroll to top.
             if(location) {
                 $("html, body").animate({
@@ -1602,10 +1603,13 @@ $(function() {
             cache[url] = $('<div class="item">').appendTo("#content-container").load(url, function() {
                 $("#content-container").ready(function() {
                     onLoadContainer();
+
                     //If there's a scroll location (second hash), scroll to it, otherwise scroll to top.
                     if(location) {
-                        $("html, body").animate({
-                            scrollTop: ($("#" + location).offset().top - 50)
+                        $("#content-container").imagesLoaded(function() {
+                            $("html, body").animate({
+                                scrollTop: ($("#" + location).offset().top - 50)
+                            });
                         });
                     }
                     else {
