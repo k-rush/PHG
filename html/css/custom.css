@@ -121,8 +121,11 @@ h4 {
 }
 
 .job__title {
+	text-align:center;
+	font-style:italic;
 	padding:0;
 	margin:0;
+
 }
 
 .job__heading {
@@ -139,8 +142,12 @@ h4 {
 	padding:0;
 }
 
+.job__ul li:before {
+ content: "\0BB \020";
+ }
+
 .company__logo {
-	max-width:200px;
+	max-width:300px;
 	width:100%;
 	margin-left:auto;
 	margin-right:auto;
