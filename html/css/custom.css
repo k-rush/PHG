@@ -240,3 +240,11 @@ hr.style-one {
 	font-size: 1.5em;
 	font-style: normal;
 }
+
+.home__heading {
+	text-align: center;
+    font-family: "Lora", "Times New Roman", Serif;
+    font-style: italic;
+    font-weight: normal;
+    font-size:1.5em;
+}
