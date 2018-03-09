@@ -1552,8 +1552,15 @@ function onLoadContainer() {
         }); 
     });
     $(".nav-scroll").each(function() { 
-        bindOnce($(this), function() {
-            $(window).hashchange();
+        bindOnce($(this), function(ev) {
+            // The following is a fix for the double-triggered hashchange for hrefs matching the hash
+            // We need to prevent default hashchange and then apply the appropriate one (once)
+            ev.preventDefault
+
+            // If the hashes match, just retrigger hashchange event to re-scroll to location
+            // Else change the hash
+            if($(this).attr('href') === window.location.hash) $(window).hashchange();
+            else window.location.hash = $(this).attr('href');
         });
     });
  
@@ -1573,7 +1580,7 @@ $(function() {
         var location = hashSplit[2];
 
         // If the hash is nonexistent, default to home
-        if(url == "" || url === null || url === undefined) {
+        if(url === "" || url === null || url === undefined) {
             url = "home.html";
         }
         
