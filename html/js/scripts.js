@@ -164,9 +164,17 @@ mr = (function (mr, $, window, document){
     mr.scroll.listeners = [];
     mr.scroll.y         = 0;
     mr.scroll.x         = 0;
-
+    //window.sr = ScrollReveal({reset:true});
      var documentReady = function($){
-        
+        /*$('.scroll-reveal').each(function() {
+            if(!$(this).hasClass('revealed')) {
+                
+                sr.reveal(this);
+                $(this).addClass('revealed');
+            }
+        });*/
+
+
         // Check if scroll-assist is on
         if($('body').hasClass('scroll-assist')){
             mr.scroll.assisted = true;
