@@ -143,8 +143,12 @@ h4 {
 }
 
 .job__ul li:before {
- content: "\0BB \020";
- }
+ 	content: "\0BB \020";
+}
+
+.company__ul li:before {
+	content: "\0BB \020";
+}
 
 .company__logo {
 	max-width:300px;
