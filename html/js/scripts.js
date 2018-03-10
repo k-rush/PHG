@@ -1312,8 +1312,9 @@ mr = (function (mr, $, window, document){
     var documentReady = function($){
         
         var $body = $('body');
-        if($('body[data-reveal-selectors]').length){
-            window.sr = ScrollReveal();
+        if(!$body.hasClass('revealed')) {
+            $body.addClass('revealed');
+            window.sr = ScrollReveal({reset:true});
         	var selectors = $body.attr('data-reveal-selectors');
 
         	// Gather scroll reveal options
@@ -1323,10 +1324,9 @@ mr = (function (mr, $, window, document){
         	}
 
         	// Initialize scroll reveal
-        	window.sr.reveal(''+selectors+'', { viewFactor: 0.1, duration: ''+revealTiming+'', scale: 1, mobile: false });
+        	window.sr.reveal('.scroll-reveal', { viewFactor: 0.1, duration: ''+revealTiming+'', scale: 1, mobile: false }); 
 
         }
-
     };
 
     mr.scrollreveal = {
