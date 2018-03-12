@@ -1,1 +1,1 @@
-aws s3 cp ./ s3://phgsolutions --recursive
+aws s3 cp ./ s3://phgsolutions-onepage --recursive

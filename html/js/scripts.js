@@ -1469,8 +1469,8 @@ mr = (function (mr, $, window, document){
     mr.smoothscroll = {
         documentReady : documentReady        
     };
-
-    mr.components.documentReady.push(documentReady);
+    /** UNCOMMENT to use smooth scroll... */
+    //mr.components.documentReady.push(documentReady);
     return mr;
 
 }(mr, jQuery, window, document));

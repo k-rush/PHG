@@ -52,9 +52,6 @@ Add your custom styles below
 	padding-left: 3em;
 }
 
-.imagebg {
-	/*margin-top:-75px;*/
-}
 
 .h1, h1{
 	font-family: 'Cinzel', 'Times New Roman', Serif;
@@ -109,7 +106,7 @@ h4 {
 }
 
 .parallax-repeat {
-    background-image: url('../images/footer_lodyas.png');
+    background-image: url('../images/textured_paper.png');
     background-repeat: repeat;
     background-position: 50% 0;    
     transition: 0s linear;
@@ -247,4 +244,20 @@ hr.style-one {
     font-style: italic;
     font-weight: normal;
     font-size:1.5em;
+}
+
+.paperbg-repeat {
+    background-image: url('../images/textured_paper.png');
+    background-repeat: repeat;
+    background-position: 50% 0;
+}
+
+.btn {
+	border:none;
+}
+
+.section-card {
+	background: transparent;
+	border:0px;
+	width:90%;
 }
